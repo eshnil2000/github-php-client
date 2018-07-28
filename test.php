@@ -3,8 +3,8 @@
 require_once(__DIR__ . '/client/GitHubClient.php');
 
 $repos = array(
-	'server',
-	'installer',
+	'neo-cli',
+	'proposals',
 );
 
 $client = new GitHubClient();
@@ -13,7 +13,7 @@ foreach($repos as $repo)
 {
 	$client->setPage();
 	$client->setPageSize(2);
-	$commits = $client->repos->commits->listCommitsOnRepository('kaltura', $repo);
+	$commits = $client->repos->commits->listCommitsOnRepository('neo-project', $repo);
 	
 	echo "Count: " . count($commits) . "\n";
 	foreach($commits as $commit)
